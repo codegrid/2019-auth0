@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "2019-auth0",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start:0-login": "yarn workspace 0-login start"
+  },
+  "workspaces": [
+    "examples/*"
+  ]
+}
