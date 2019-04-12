@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start:0-login": "yarn workspace 0-login start"
+    "start:0-login": "yarn workspace 0-login start",
+    "start:1-id_token": "yarn workspace 1-id_token start"
   },
   "workspaces": [
     "examples/*"
