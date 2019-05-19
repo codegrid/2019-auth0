@@ -1,4 +1,4 @@
-# 0-login
+# 2-validate_id_token
 
 ## Project setup
 ```

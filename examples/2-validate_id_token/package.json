@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "0-login",
+  "name": "2-validate_id_token",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
