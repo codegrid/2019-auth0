@@ -37,7 +37,7 @@
       <form @submit.prevent="postPrivateEcho">
         <input v-model="postPrivateEchoInput" />
         <button>
-          Echo
+          Private Echo
         </button>
       </form>
     </div>
