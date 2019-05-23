@@ -74,6 +74,9 @@ export default {
       return this.$store.getters.idToken;
     },
   },
+  mounted() {
+    this.$store.dispatch('renewToken');
+  },
   methods: {
     login() {
       this.$store.dispatch('login');

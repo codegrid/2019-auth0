@@ -16,6 +16,7 @@ const webAuth = new WebAuth({
   clientID: process.env.VUE_APP_AUTH0_CLIENT_ID,
   responseType: 'id_token',
   redirectUri: process.env.VUE_APP_AUTH0_REDIRECT_URL,
+  scope: 'openid profile email',
 });
 
 export const login = () => {
@@ -25,6 +26,18 @@ export const login = () => {
 export const getAuthResult = async () => {
   return new Promise((resolve, reject) => {
     webAuth.parseHash((err, authResult) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(authResult);
+    });
+  });
+};
+
+export const getAuthResultByRenewTokens = async () => {
+  return new Promise((resolve, reject) => {
+    webAuth.checkSession({}, (err, authResult) => {
       if (err) {
         reject(err);
         return;

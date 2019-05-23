@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { getAuthResult, getUserProfile, login } from './services/auth0';
+import { getAuthResult, getAuthResultByRenewTokens, getUserProfile, login } from './services/auth0';
 
 Vue.use(Vuex);
 
@@ -41,6 +41,10 @@ export default new Vuex.Store({
     },
     async handleAuthentication({ commit }) {
       const authResult = await getAuthResult();
+      commit('updateIdToken', authResult.idToken);
+    },
+    async renewToken({ commit }) {
+      const authResult = await getAuthResultByRenewTokens();
       commit('updateIdToken', authResult.idToken);
     },
   },
