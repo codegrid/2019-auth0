@@ -47,14 +47,6 @@
 <script>
 import axios from 'axios';
 
-const createHeaders = idToken => {
-  return idToken !== null
-    ? {
-        headers: { Authorization: `Bearer ${idToken}` },
-      }
-    : {};
-};
-
 export default {
   name: 'home',
   data() {
@@ -93,7 +85,12 @@ export default {
       }
     },
     async getPrivateGreeting() {
-      const headers = createHeaders(this.idToken);
+      const headers =
+        this.idToken !== null
+          ? {
+              headers: { Authorization: `Bearer ${this.idToken}` },
+            }
+          : {};
       const config = { ...headers };
       try {
         const response = await axios.get('/api/private/greeting', config);
@@ -113,7 +110,12 @@ export default {
     },
     async postPrivateEcho() {
       const body = { message: this.postPrivateEchoInput };
-      const headers = createHeaders(this.idToken);
+      const headers =
+        this.idToken !== null
+          ? {
+              headers: { Authorization: `Bearer ${this.idToken}` },
+            }
+          : {};
       const config = { ...headers };
       try {
         const response = await axios.post('/api/private/echo', body, config);
